@@ -1,0 +1,60 @@
+.App {
+  margin: 2%;
+  width: 96%;
+  height: 570px;
+  display: flex;
+  flex-direction: row;
+}
+.user-list {
+  background-color: white;
+  border: 1px solid black;
+  float: left;
+  input {
+    margin-top: 1%;
+    margin-bottom: 2%;
+    text-decoration: none;
+    background-color: whitesmoke;
+    font-size: larger;
+  }
+  input:hover {
+    background-color: rgba(255, 99, 71, 0.9);
+    color: wheat;
+  }
+  .btn-add {
+    width: 100%;
+    background-color: rgba(87, 87, 88, 0.2);
+  }
+}
+.user-data {
+  background-color: rgba(0, 255, 255, 0.1);
+}
+.contaier {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .card {
+		margin-top: 20%;
+		margin-left: 35%;
+    width: 60%;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(76, 152, 252, 0.829);
+    background-color: rgb(255, 255, 255);
+    .card-img-block {
+      padding: 5%;
+      margin: 1%;
+      width: 91%;
+      margin: 0 auto;
+      position: relative;
+      top: -20px;
+      img {
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.63);
+      }
+    }
+    p {
+      font-size: 14px;
+      font-weight: 300;
+    }
+  }
+}
