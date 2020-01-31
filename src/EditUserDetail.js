@@ -10,18 +10,27 @@ class EditUserDetail extends React.Component {
 			...this.props.data
 		}
 	}
-	onTodoChange(e) {
+	onTodoChange = (e) => {
 		this.setState({
-			[e.target.name]: [e.target.value]
+			[e.target.name]: [e.target.value],
 		})
 	}
+	componentDidUpdate(prevProps) {
+		if (this.props.id !== prevProps.id) {
+		axios.get(`http://192.168.2.65:3030/posts/${this.props.id}`)
+			.then(res => {
+				const user_more = res.data;
+				this.setState({ user_more });
+			})
+		}
+	}
 	render() {
-		const { handleClose, user_first_name, user_last_name, user_email } = this.props
-		let userEmail = user_email;
-		let userFirstName = user_first_name;
-		let userLastName = user_last_name;
+		const { handleClose, title, body } = this.props
+		let newtitle = title;
+		let newbody = body;
 		return (
 			<>
+
 				<Modal show={this.props.statusEdit} onHide={handleClose}>
 					<Modal.Header closeButton>
 						<Modal.Title>Edit </Modal.Title>
@@ -30,18 +39,13 @@ class EditUserDetail extends React.Component {
 						<Form >
 							<Row>
 								<Col>
-									<Form.Control placeholder="First name" name="user_first_name" value={userFirstName} onChange={e => this.onTodoChange(e)} />
+									<Form.Control placeholder="First name" name="title" ref={this.input} defaultValue={newtitle} onChange={e => this.onTodoChange(e)} />
 								</Col>
 								<Col>
-									<Form.Control placeholder="Last name" name="user_last_name" value={userLastName} onChange={e => this.onTodoChange(e)} />
+									<Form.Control placeholder="Last name" name="body" ref={this.input} defaultValue={newbody} onChange={e => this.onTodoChange(e)} />
 								</Col>
 							</Row>
 							<br />
-							<Row>
-								<Col>
-									<Form.Control placeholder="Enter email" value={userEmail} />
-								</Col>
-							</Row>
 						</Form>
 					</Modal.Body>
 					<Modal.Footer>

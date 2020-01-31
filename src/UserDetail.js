@@ -15,7 +15,7 @@ class UserDetail extends React.Component {
 	}
 
 	UNSAFE_componentWillReceiveProps(props) {
-		// console.log("user_id", this.props);
+		console.log("UserDEtailprops", this.props);
 
 	}
 	componentDidUpdate(prevProps) {
@@ -56,12 +56,18 @@ class UserDetail extends React.Component {
 				<EditUserDetail
 					handleClose={this.props.handleClose}
 					statusEdit={this.props.statusEdit}
+					title={this.state.title}
+					body={this.state.body}
+					id={this.props.id}
 				/>
 
 				{/* for delete */}
 				<DeleteUserDetail
 					handleClose={this.props.handleClose}
 					statusDelete={this.props.statusDelete}
+					title={this.state.title}
+					body={this.state.body}
+					id={this.props.id}
 				/>
 				{/* for add */}
 				<AddUserDetail

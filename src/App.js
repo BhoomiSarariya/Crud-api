@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import UserDetail from './UserDetail';
 import UserList from './UserList';
-import axios from 'axios';
 import './App.scss';
 
 
@@ -20,8 +19,8 @@ class App extends React.Component {
 		setTimeout(
 			this.setState({
 				id: p1,
-				title:p2,
-				body:p3,
+				title: p2,
+				body: p3,
 				statusEdit: false,
 				statusDelete: false,
 				statusAdd: false
@@ -35,15 +34,19 @@ class App extends React.Component {
 			statusAdd: false
 		})
 	};
-	handleShow = (p1, e) => {
+	handleShow = (p1,p2,p3, e) => {
 		this.setState({
-			id: Number(p1),
+			id: p1,
+			title: p2,
+			body: p3,
 			statusEdit: true,
 		})
 	}
-	handleShowDelete = (p1, e) => {
+	handleShowDelete = (p1,p2,p3, e) => {
 		this.setState({
-			uid: Number(p1),
+			id: p1,
+			title: p2,
+			body: p3,
 			statusDelete: true,
 		})
 	}

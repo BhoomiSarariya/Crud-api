@@ -40,8 +40,8 @@ class UserList extends React.Component {
 						<>
 							<input type="button" className="btn btn-defualt col-sm-5 col-md-9" key={i} onClickCapture={(e) => this.props.userData(subitem._id, subitem.title, subitem.body, e)}
 								value={subitem.title + "  " + subitem.body} />
-							<button className="btn btn-defualt col-sm-1 col-md-1" onClick={(e) => this.props.handleShow(subitem._id, e)}><FontAwesomeIcon icon={faEdit} /></button>
-							<button className="btn btn-defualt col-sm-1 col-md-1" onClick={(e) => this.props.handleShowDelete(subitem._id, e)}><FontAwesomeIcon icon={faTrash} /></button>
+							<button className="btn btn-defualt col-sm-1 col-md-1" onClick={(e) => this.props.handleShow(subitem._id,subitem.title, subitem.body, e)}><FontAwesomeIcon icon={faEdit} /></button>
+							<button className="btn btn-defualt col-sm-1 col-md-1" onClick={(e) => this.props.handleShowDelete(subitem._id,subitem.title, subitem.body, e)}><FontAwesomeIcon icon={faTrash} /></button>
 						</>
 					)}
 					<button className="btn btn-defualt btn-add" onClick={(e) => this.props.handleShowAdd(e)} ><FontAwesomeIcon icon={faUserPlus} /></button>

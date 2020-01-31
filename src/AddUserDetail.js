@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import axios from 'axios';
-import { Button } from 'react-bootstrap';
+import { Button, ResponsiveEmbed } from 'react-bootstrap';
 import { Modal, Form, Row, Col } from 'react-bootstrap';
 class AddUserDetail extends React.Component {
 	constructor(props) {
@@ -24,17 +24,20 @@ class AddUserDetail extends React.Component {
 		this.setState({ [e.target.name]: e.target.value })
 	}
 
-	handleSubmitAdd=(e)=>{
+	 handleSubmitAdd=(e)=>{
 		e.preventDefault();
-		alert("bhooomi")
-		// const { title, body } = this.state;
-		// try {
-		// 	const response = await axios.post('http://192.168.2.65:3030/posts', { title, body });
-		// 	console.log(response);
-		// }
-		// catch (error) {
-		// 	console.log(error);
-		// }
+		const { title, body } = this.state;
+		try {
+			const response = axios.post('http://192.168.2.65:3030/posts', { title, body });
+			console.log(response);
+			setTimeout(
+				this.props.handleClose()
+			,200) 
+		}
+		
+		catch (error) {
+			console.log(error);
+		}
 	}
 
 	UNSAFE_componentWillReceiveProps(props) {
@@ -50,7 +53,7 @@ class AddUserDetail extends React.Component {
 						<Modal.Title>Add</Modal.Title>
 					</Modal.Header>
 					<Modal.Body>
-						<Form onSubmit={(e) => this.handleSubmitAdd(e)} ref={e => this.formRef = e}>
+						<Form onSubmit={(e) => this.handleSubmitAdd(e)} >
 							<Row>
 								<Col>
 									<Form.Control placeholder="First name" name="title" onChange={(e) => this.handleChange(e)} />
@@ -66,7 +69,7 @@ class AddUserDetail extends React.Component {
 						<Button variant="secondary" onClick={handleClose}>
 							Close
 							</Button>
-						<Button type="submit" variant="primary" onClick={handleClose}>
+						<Button type="submit" variant="primary" onClick={(e)=>this.handleSubmitAdd(e)}>
 							Add User
 							</Button>
 					</Modal.Footer>
