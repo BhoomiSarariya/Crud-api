@@ -14,10 +14,6 @@ class UserDetail extends React.Component {
 		}
 	}
 
-	UNSAFE_componentWillReceiveProps(props) {
-		console.log("UserDEtailprops", this.props);
-
-	}
 	componentDidUpdate(prevProps) {
 		if (this.props.id !== prevProps.id) {
 			axios.get(`http://192.168.2.65:3030/posts/${this.props.id}`)
@@ -37,9 +33,10 @@ class UserDetail extends React.Component {
 		}
 	}
 	render() {
-		const { title, body } = this.state
+		const { title, body } = this.state;
+		const{id}=this.props;
 		return (
-			<>
+			<>{id &&
 				<div className="contaier row col-md-9 col-sm-9">
 					<div className="card col-md-5 col-sm-5">
 						<div className="card-img-block">
@@ -51,6 +48,7 @@ class UserDetail extends React.Component {
 						</div>
 					</div>
 				</div>
+	}
 
 				{/* for edit */}
 				<EditUserDetail
@@ -77,7 +75,6 @@ class UserDetail extends React.Component {
 					handleChange={this.props.handleChange}
 					handleSubmitAdd={this.props.handleSubmitAdd}
 				/>
-
 			</>
 		)
 	}

@@ -11,18 +11,25 @@
   float: left;
   input {
     margin-top: 1%;
+    margin-left: 2%;
     margin-bottom: 2%;
     text-decoration: none;
     background-color: whitesmoke;
+    box-shadow: 0 0 10px rgba(76, 152, 252, 0.829);
     font-size: larger;
   }
   input:hover {
     background-color: rgba(255, 99, 71, 0.9);
     color: wheat;
   }
-  .btn-add {
-    width: 100%;
-    background-color: rgba(87, 87, 88, 0.2);
+  button{
+    margin-top:2%;
+    margin-left: 1%;
+    height: 95%;
+    box-shadow: 0 0 10px rgba(76, 152, 252, 0.829);
+  }
+  .btn-add{
+    width: 95%;
   }
 }
 .user-data {

@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import axios from 'axios';
-import { Button, ResponsiveEmbed } from 'react-bootstrap';
+import { Button} from 'react-bootstrap';
 import { Modal, Form, Row, Col } from 'react-bootstrap';
 class AddUserDetail extends React.Component {
 	constructor(props) {

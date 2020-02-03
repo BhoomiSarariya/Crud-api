@@ -12,10 +12,6 @@ class DeleteUserDetail extends React.Component {
 		}
 	}
 
-	UNSAFE_componentWillReceiveProps(props) {
-		console.log("delete props", this.props.id);
-	}
-
 	handleSubmitDelete(e) {
 		e.preventDefault();
 		console.log(this.props.id);

@@ -8,7 +8,7 @@ import './App.scss';
 class App extends React.Component {
 	state = {
 		user: [],
-		id: 0,
+		id: 0||'',
 		title: '',
 		body: '',
 		statusEdit: false,
